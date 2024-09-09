@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('quiz', [QuestionController::class, 'show'])->name('quiz.show');
+Route::get('quizzes', [QuestionController::class, 'category'])->name('quiz.show.category');
+
 Route::post('quiz', [QuestionController::class, 'store'])->name('quiz.store');
 Route::get('panel/quiz/create', [QuizController::class, 'create'])->name('panel.quiz.create');
 Route::post('panel/quiz/create', [QuizController::class, 'store'])->name('panel.quiz.sote');

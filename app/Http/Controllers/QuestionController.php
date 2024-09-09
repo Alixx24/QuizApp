@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\QuizCategory;
 use App\Models\Option;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -27,5 +28,12 @@ class QuestionController extends Controller
         }
 
         return view('quiz.results', compact('correctCount', 'totalQuestions'));
+    }
+
+    public function category()
+    {
+        $fetchCategorie = QuizCategory::select('name','id')->get();
+        // dd($fetchCategorie);
+        return view('quiz.selectCategorie', compact('fetchCategorie'));
     }
 }
