@@ -27,7 +27,8 @@ class QuestionController extends Controller
             }
         }
 
-        return view('quiz.results', compact('correctCount', 'totalQuestions'));
+        $percentageCorrect =($totalQuestions > 0) ? ($correctCount / $totalQuestions) * 100 : 0;
+        return view('quiz.results', compact('correctCount', 'totalQuestions', 'percentageCorrect'));
     }
 
     public function category()
@@ -45,6 +46,6 @@ class QuestionController extends Controller
 
         return view('quiz.show-select-categorie', compact('fetchQuestion', 'fetchNumberQuestion'));
 
-        dd($fetchNumberQuestion);
+        // dd($fetchNumberQuestion);
     }
 }
