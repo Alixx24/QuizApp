@@ -20,7 +20,7 @@
         </button>
         <ul class="dropdown-menu">
             @foreach($fetchCategorie as $data)
-            <li><a class="dropdown-item" href="#">{{ $data->name }}</a></li>
+            <li><a class="dropdown-item" href="{{ route('quiz.show.category.select', $data->id) }}">{{ $data->name }}</a></li>
             @endforeach
         </ul>
     </div>

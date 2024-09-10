@@ -36,4 +36,15 @@ class QuestionController extends Controller
         // dd($fetchCategorie);
         return view('quiz.selectCategorie', compact('fetchCategorie'));
     }
+
+    public function showSelectedOfCategory($id)
+    {
+        // dd($id);
+        $fetchQuestion = Question::where('cat_id',$id)->get();
+        $fetchNumberQuestion = count($fetchQuestion);
+
+        return view('quiz.show-select-categorie', compact('fetchQuestion', 'fetchNumberQuestion'));
+
+        dd($fetchNumberQuestion);
+    }
 }

@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 Route::get('quiz', [QuestionController::class, 'show'])->name('quiz.show');
 Route::get('quizzes', [QuestionController::class, 'category'])->name('quiz.show.category');
+Route::get('quizzes/{id}', [QuestionController::class, 'showSelectedOfCategory'])->name('quiz.show.category.select');
 
 Route::post('quiz', [QuestionController::class, 'store'])->name('quiz.store');
 Route::get('panel/quiz/create', [QuizController::class, 'create'])->name('panel.quiz.create');
