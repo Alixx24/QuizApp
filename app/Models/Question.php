@@ -18,4 +18,8 @@ class Question extends Model
     public function category() {
         return $this->belongsTo(QuizCategory::class);
     }
+    public function tag()
+    {
+        return $this->morphOne('App\Models\Tag', 'taggable');
+    }
 }

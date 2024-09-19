@@ -14,4 +14,9 @@ class Option extends Model
     {
         return $this->belongsTo(Option::class);
     }
+
+    public function tag()
+    {
+        return $this->morphOne('App\Models\Tag', 'taggable');
+    }
 }
