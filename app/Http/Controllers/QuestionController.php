@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\QuizCategory;
 use App\Models\Option;
 use App\Models\Question;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller

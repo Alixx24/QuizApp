@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Option;
 use App\Models\Question;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -15,11 +16,19 @@ class QuizController extends Controller
     }
     public function create()
     {
-        return view('admin.create-question');
+        $tagSelect = Tag::all();
+        return view('admin.create-question',compact('tagSelect'));
     }
-    public function store(Request $request, Question $quiz)
+    public function store(Request $request, Question $quiz, Tag $tag)
     {
-     $question = $quiz->create(['question_text' => $request->text]);
+      
+     $question = $quiz->create(['question_text' => $request->text, 'tag_id' => $request->tagName]);
+
+        // $tag->create([
+        //     'name' => $request->tagName,
+        //     'taggable_id' => $question->id,
+        //     'taggable_type' => 'App\Models\Tag'
+        // ]);
 
         foreach($request->input('options') as $option)
         {

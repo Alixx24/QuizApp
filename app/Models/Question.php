@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
-    protected $fillable = ['question_text','category_id'];
+    protected $fillable = ['question_text','category_id', 'tag_id'];
     public function options()
     {
         return $this->hasMany(Option::class);
